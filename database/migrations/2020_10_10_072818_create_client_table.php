@@ -17,11 +17,11 @@ class CreateClientTable extends Migration
             $table->bigIncrements('id');
             $table->string('fio');
             $table->date('date_of_birth')->nullable();
-            $table->string('massage_type');
+            $table->string('massage_type')->nullable();
             $table->string('medical_background')->nullable();
             $table->unsignedBigInteger('photo_id')->nullable();
             $table->string('annotation')->nullable();
-            $table->timestamp('last_massage')->nullable();
+            $table->date('last_massage')->nullable();
             $table->timestamps();
         });
     }

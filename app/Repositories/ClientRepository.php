@@ -14,17 +14,26 @@ class ClientRepository extends CoreRepository
     }
     public function getAllWithPaginate($countPage=null)
     {
-        $fields=['id','fio','date_of_birth','massage_type','medical_background','last_massage','created_at'];
+        $fields=[
+            'id',
+            'fio',
+            'date_of_birth',
+            'massage_type',
+            'medical_background',
+            'annotation',
+            'last_massage',
+            'created_at'
+        ];
 
         $result=$this
             ->startConditions()
             ->select($fields)
             ->toBase()
             ->paginate($countPage);
+
         return $result;
 
     }
-
 
 }
 

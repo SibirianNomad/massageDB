@@ -5,14 +5,17 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\Repositories\ClientRepository;
 use App\Http\Controllers\Client\BaseController;
+use App\Models\Client;
 
 class ClientController extends BaseController
 {
+    private $clientRepository;
+
     public function __construct(){
         parent::__construct();
         $this->clientRepository = app(ClientRepository::class);
     }
-    private $clientRepository;
+
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +23,7 @@ class ClientController extends BaseController
      */
     public function index()
     {
-        $paginator=$this->clientRepository->getAllWithPaginate();
-        dd($paginator);
+        $paginator=$this->clientRepository->getAllWithPaginate(15);
         return view('index',compact('paginator'));
     }
 
@@ -32,7 +34,8 @@ class ClientController extends BaseController
      */
     public function create()
     {
-        dd(__METHOD__);
+        $item=new Client();
+        return view('edit',compact('item'));
     }
 
     /**
@@ -43,7 +46,13 @@ class ClientController extends BaseController
      */
     public function store(Request $request)
     {
-        dd(__METHOD__);
+        $data=$request->input();
+        $item=(new Client())->create($data);
+        if($item){
+            return redirect()->route('client.index');
+        }else{
+            return back()->withErrors(['msg'=>"Ошибка сохранения"])->withInput();
+        }
     }
 
     /**

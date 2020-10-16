@@ -12,10 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::group(['/','/'], function(){
-
-    Route::resource('/','ClientController')
+$groupData=[
+    'namespace' => 'Client',
+    'prefix' => '/'
+];
+Route::group($groupData, function(){
+    $methods=['index','edit','update','create','store'];
+    Route::resource('/client','ClientController')
+        ->only($methods)
         ->names('client');
 
 });
