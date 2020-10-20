@@ -1,13 +1,14 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<div class='container mt-3'>
+<div class='pt-3 px-5 bg-secondary'>
+@include('includes.result_message')
     <div class='row justify-container-center'>
         <div class='col-md-12'>
             <nav class='nav nav-toggleable-md navbar-light bg-faded mb-3'>
                 <a class='btn btn-primary ' href="{{ route('client.create') }}">Добавить пациента</a>
             </nav>
             <div class='card'>
-                <div class='card-body'>
-                    <table class='table table-hover'>
+                <div class='card-body bg-secondary'>
+                    <table class='table table-hover bg-white'>
                         <thead>
                         <tr>
                             <th  class="col-auto">#</th>
@@ -25,7 +26,13 @@
                         @foreach($paginator as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td >{{$item->fio}}</td>
+                               
+                                <td>
+                                    <a href="{{ route('client.edit', $item->id) }}">
+                                        {{$item->fio}}
+                                    </a>
+                                 </td>
+                                
                                 <td>{{$item->date_of_birth}}</td>
                                 <td>{{$item->massage_type}}</td>
                                 <td>{{$item->medical_background}}</td>

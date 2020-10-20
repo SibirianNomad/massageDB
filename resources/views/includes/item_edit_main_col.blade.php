@@ -1,3 +1,4 @@
+@include('includes.result_message')
 <div class='row justify-content-center'>
     <div class='col-md-12'>
         <div class='card'>
@@ -27,7 +28,7 @@
                         </div>
                         <div class='form-group'>
                             <label for='last_massage'>Дата последнего массажа</label>
-                            <input type="date" class="form-control" id="last_massage" name="date_of_birth" value='{{ $item->last_massage }}'>
+                            <input type="date" class="form-control" id="last_massage" name="last_massage" value='{{ $item->last_massage }}'>
                         </div>
                         <div class='form-group'>
                             <label for='massage_type'>Тип массажа</label>
@@ -44,6 +45,14 @@
                                       rows='3'
                                       class='form-control'
                             >{{ old('medical_background',$item->medical_background) }}</textarea>
+                        </div>
+                        <div class='form-group'>
+                            <label for='annotation'>Примечания</label>
+                            <textarea name='annotation'
+                                      id='annotation'
+                                      rows='3'
+                                      class='form-control'
+                            >{{ old('annotation',$item->annotation) }}</textarea>
                         </div>
                     </div>
                 </div>

@@ -23,7 +23,7 @@ class ClientController extends BaseController
      */
     public function index()
     {
-        $paginator=$this->clientRepository->getAllWithPaginate(15);
+        $paginator=$this->clientRepository->getAllWithPaginate(10);
         return view('index',compact('paginator'));
     }
 
@@ -49,7 +49,7 @@ class ClientController extends BaseController
         $data=$request->input();
         $item=(new Client())->create($data);
         if($item){
-            return redirect()->route('client.index');
+            return redirect()->route('client.index')->with(['success'=>'Успешно сохранено']);;
         }else{
             return back()->withErrors(['msg'=>"Ошибка сохранения"])->withInput();
         }
@@ -74,7 +74,11 @@ class ClientController extends BaseController
      */
     public function edit($id)
     {
-        dd(__METHOD__);
+        // $item=$this->clientRepository->getEdit($id);
+        // if(empty($item)){
+        //     abort(404);
+        // }
+        // return 
     }
 
     /**
