@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Illuminate\Database\Eloquent\Collection;
 
 use App\Models\Client as Model;
+use Carbon\Carbon;
 
 
 class ClientRepository extends CoreRepository
@@ -17,12 +18,13 @@ class ClientRepository extends CoreRepository
         $fields=[
             'id',
             'fio',
-            'date_of_birth',
+            'birthday',
             'massage_type',
             'medical_background',
             'annotation',
             'last_massage',
-            'created_at'
+            'created_at',
+            'is_active'
         ];
 
         $result=$this
@@ -34,9 +36,29 @@ class ClientRepository extends CoreRepository
         return $result;
 
     }
-    
+
     public function getEdit($id){
         return $this->startConditions()->find($id);
+    }
+
+    public function getBirthdays(){
+        $birthdays=[];
+        $data=Model::withTrashed()->get();
+        $collection=collect($data->toArray());
+        foreach($collection as $record){
+            $birthday = Carbon::parse($record['birthday']);
+            $birthday->year(date('Y'));
+            $day= Carbon::now()->diffInDays($birthday, false);
+            if($day==1 || $day==2){
+                $record['birthday']=Carbon::parse($record['birthday'])->format('d.m.Y');
+                $birthdays[]=$record;
+            }
+        }
+        return $birthdays;
+    }
+    public function getCurrentDate(){
+        $day= Carbon::now('Asia/Tomsk')->format('d.m.Y');
+        return $day;
     }
 
 }

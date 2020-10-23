@@ -23,8 +23,8 @@
                             >
                         </div>
                         <div class='form-group'>
-                            <label for='date_of_birth'>Дата рождения</label>
-                            <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" value='{{ $item->date_of_birth }}'>
+                            <label for='birthday'>Дата рождения</label>
+                            <input type="date" class="form-control" id="birthday" name="birthday" value='{{ $item->birthday }}'>
                         </div>
                         <div class='form-group'>
                             <label for='last_massage'>Дата последнего массажа</label>
@@ -53,6 +53,21 @@
                                       rows='3'
                                       class='form-control'
                             >{{ old('annotation',$item->annotation) }}</textarea>
+                        </div>
+                        <div class="form-check">
+                            <input name="is_active"
+                                   type="hidden"
+                                   value="0"
+                            >
+                            <input name="is_active"
+                                   type="checkbox"
+                                   class="form-check-input"
+                                   value="1"
+                                   @if($item->is_active)
+                                   checked="checked"
+                                @endif
+                            >
+                            <label class="form-check-label" for="is_active">На данный момент пациент на массаже?</label>
                         </div>
                     </div>
                 </div>

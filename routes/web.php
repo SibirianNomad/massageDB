@@ -17,10 +17,6 @@ $groupData=[
     'prefix' => '/'
 ];
 Route::group($groupData, function(){
-    $methods=['index','edit','update','create','store'];
-    Route::resource('/client','ClientController')
-        ->only($methods)
-        ->names('client');
-
+    Route::resource('/client','ClientController')->names('client');
 });
 

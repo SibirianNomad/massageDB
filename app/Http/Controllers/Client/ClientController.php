@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Repositories\ClientRepository;
 use App\Http\Controllers\Client\BaseController;
@@ -24,7 +25,9 @@ class ClientController extends BaseController
     public function index()
     {
         $paginator=$this->clientRepository->getAllWithPaginate(10);
-        return view('index',compact('paginator'));
+        $birthdays=$this->clientRepository->getBirthdays();
+        $day=$this->clientRepository->getCurrentDate();
+        return view('index',compact('paginator','birthdays','day'));
     }
 
     /**
@@ -47,9 +50,10 @@ class ClientController extends BaseController
     public function store(Request $request)
     {
         $data=$request->input();
+
         $item=(new Client())->create($data);
         if($item){
-            return redirect()->route('client.index')->with(['success'=>'Успешно сохранено']);;
+            return redirect()->route('client.index')->with(['success'=>'Пациент дабален']);;
         }else{
             return back()->withErrors(['msg'=>"Ошибка сохранения"])->withInput();
         }
@@ -74,11 +78,13 @@ class ClientController extends BaseController
      */
     public function edit($id)
     {
-        // $item=$this->clientRepository->getEdit($id);
-        // if(empty($item)){
-        //     abort(404);
-        // }
-        // return 
+
+         $item=$this->clientRepository->getEdit($id);
+
+         if(empty($item)){
+             abort(404);
+         }
+        return view('edit', compact('item'));
     }
 
     /**
@@ -90,7 +96,19 @@ class ClientController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        dd(__METHOD__);
+        $item=$this->clientRepository->getEdit($id);
+        if(empty($item)){
+            return back()->withErrors(['msg'=>"Запись id[{$id}] не найдена"])->withInput();
+        }
+        $data=$request->all();
+
+        $result=$item->update($data);
+
+        if($result){
+            return redirect()->route('client.index')->with(['success'=>'Запись успешно отредактирована']);
+        }else{
+            return back()->withErrors(['msg'=>"Ошибка сохранения"])->withInput();
+        }
     }
 
     /**
@@ -101,6 +119,12 @@ class ClientController extends BaseController
      */
     public function destroy($id)
     {
-        dd(__METHOD__);
+        $result=Client::destroy($id);
+
+        if($result){
+            return redirect()->route('client.index')->with(['success'=>"Запись успешно удалена"]);
+        }else{
+            return back()->withErrors(['msg'=>"Ошибка сохранения"])->withInput();
+        }
     }
 }
