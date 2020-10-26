@@ -18,6 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -148,7 +150,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/includes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -160,14 +163,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\poligon\htdocs\massageDB\public\js" />
       <recent name="C:\poligon\htdocs\massageDB\resources\views\includes" />
       <recent name="C:\poligon\htdocs\massageDB\resources\views" />
       <recent name="C:\poligon\htdocs\massageDB\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\poligon\htdocs\massageDB\public\js" />
+      <recent name="C:\poligon\htdocs\massageDB\resources\js" />
+      <recent name="C:\poligon\htdocs\massageDB\resources\views" />
       <recent name="C:\poligon\htdocs\massageDB\app\Http\Controllers\Client" />
       <recent name="C:\poligon\htdocs\massageDB\app" />
-      <recent name="C:\poligon\htdocs\massageDB\app\Http\Models" />
     </key>
   </component>
   <component name="RunManager">
@@ -187,6 +193,8 @@
       <workItem from="1602313416245" duration="7756000" />
       <workItem from="1602469827187" duration="3344000" />
       <workItem from="1602667158267" duration="10142000" />
+      <workItem from="1603681721301" duration="6892000" />
+      <workItem from="1603689073843" duration="17602000" />
     </task>
     <servers />
   </component>

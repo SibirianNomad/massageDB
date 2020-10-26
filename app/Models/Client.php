@@ -10,6 +10,7 @@ class Client extends Model
 {
     protected $table = 'client';
     use SoftDeletes;
+
     protected $fillable=[
         'fio',
         'birthday',
@@ -18,7 +19,9 @@ class Client extends Model
         'annotation',
         'last_massage',
         'created_at',
-        'is_active'
+        'is_active',
+        'photo'
     ];
+
 
 }

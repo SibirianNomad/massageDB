@@ -18,9 +18,9 @@ class CreateClientTable extends Migration
             $table->string('fio');
             $table->date('birthday')->nullable();
             $table->string('massage_type')->nullable();
-            $table->string('medical_background')->nullable();
-            $table->unsignedBigInteger('photo_id')->nullable();
-            $table->string('annotation')->nullable();
+            $table->text('medical_background')->nullable();
+            $table->boolean('photo')->default(false);
+            $table->text('annotation')->nullable();
             $table->date('last_massage')->nullable();
             $table->boolean('is_active')->default(false);
             $table->softDeletes();

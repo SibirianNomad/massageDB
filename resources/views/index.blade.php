@@ -1,4 +1,10 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<link rel="stylesheet" href={{ asset('css/bootstrap.css') }}>
+
 <div class='h-100 pt-3 px-5 bg-secondary'>
     <div class='text-center text-white h4'>
         Сегодня {{ $day }}
@@ -58,7 +64,15 @@
                                 <td>{{$item->last_massage}}</td>
                                 <td>{{$item->created_at}}</td>
                                 <td>
-                                    <button class="btn btn-primary btn-block">Добавить</button>
+                                    <form method="POST" action="{{ route('upload') }}" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class=«col-md-6»>
+                                            <input type='file' name='image' class="form-control-file">
+                                            <input hidden name="id" value="{{$item->id}}">
+                                            <input hidden name="fio" value="{{$item->fio}}">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block">Добавить</button>
+                                    </form>
                                 </td>
                                 <td>
                                     <a  class="btn btn-primary btn-block" href="{{ route('client.edit', $item->id) }}">
@@ -69,6 +83,9 @@
                                         @csrf
                                         <button type="submit" class="btn btn-primary btn-block">Удалить</button>
                                     </form>
+                                    @if($item->photo)
+                                    <button type="submit" class="btn btn-primary btn-block" onclick="unloadPhoto({{$item->id}},'{{$item->fio}}')">Фотографии</button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -88,3 +105,8 @@
         </div>
     </div>
 @endif
+<div id="picture">
+
+</div>
+<script src={{ asset('js/jquery.js') }}></script>
+<script src={{ asset('js/main.js') }}></script>

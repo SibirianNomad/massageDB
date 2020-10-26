@@ -19,4 +19,8 @@ $groupData=[
 Route::group($groupData, function(){
     Route::resource('/client','ClientController')->names('client');
 });
+Route::post('/upload','PhotoController@upload')->name('upload');
+Route::post('/unload','PhotoController@unload')->name('unload');
+
+
 

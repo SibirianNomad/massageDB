@@ -127,4 +127,7 @@ class ClientController extends BaseController
             return back()->withErrors(['msg'=>"Ошибка сохранения"])->withInput();
         }
     }
+    public function upload(){
+        dd(12);
+    }
 }

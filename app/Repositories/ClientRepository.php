@@ -24,7 +24,8 @@ class ClientRepository extends CoreRepository
             'annotation',
             'last_massage',
             'created_at',
-            'is_active'
+            'is_active',
+            'photo'
         ];
 
         $result=$this
@@ -48,8 +49,8 @@ class ClientRepository extends CoreRepository
         foreach($collection as $record){
             $birthday = Carbon::parse($record['birthday']);
             $birthday->year(date('Y'));
-            $day= Carbon::now()->diffInDays($birthday, false);
-            if($day==1 || $day==2){
+            $day= Carbon::now()->diffInHours($birthday, false);
+            if($day<48 && $day>(-15) && $record['deleted_at']==null){
                 $record['birthday']=Carbon::parse($record['birthday'])->format('d.m.Y');
                 $birthdays[]=$record;
             }
