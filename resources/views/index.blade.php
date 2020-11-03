@@ -4,6 +4,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <link rel="stylesheet" href={{ asset('css/bootstrap.css') }}>
+<link rel="stylesheet" href={{ asset('css/layout.css') }}>
 
 <div class='h-100 pt-3 px-5 bg-secondary'>
     <div class='text-center text-white h4'>
@@ -30,18 +31,16 @@
                             <th  class="col-md-auto">ФИО</th>
                             <th  class="col-md-auto">Дата рождения</th>
                             <th  class="col-md-auto">Тип массажа</th>
-                            <th  class="col-md-auto">Клиент на массаже?</th>
                             <th  class="col-md-auto">Анамнез</th>
                             <th  class="col-md-auto">Примечания</th>
                             <th  class="col-md-auto">Дата последнего массажа</th>
-                            <th  class="col-md-auto">Дата создания записи</th>
                             <th  class="col-md-auto">Добавить фотографию</th>
                             <th  class="col-md-auto">Действия</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($paginator as $item)
-                            <tr>
+                            <tr  @if($item->is_active) style="background-color:lightpink;" @endif>
                                 <td>{{$item->id}}</td>
 
                                 <td>
@@ -52,22 +51,15 @@
 
                                 <td>{{$item->birthday}}</td>
                                 <td>{{$item->massage_type}}</td>
-                                <td>
-                                    @if($item->is_active)
-                                        да
-                                    @else
-                                        нет
-                                    @endif
-                                </td>
                                 <td>{{$item->medical_background}}</td>
                                 <td>{{$item->annotation}}</td>
                                 <td>{{$item->last_massage}}</td>
-                                <td>{{$item->created_at}}</td>
                                 <td>
                                     <form method="POST" action="{{ route('upload') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class=«col-md-6»>
-                                            <input type='file' name='image' class="form-control-file">
+                                            <input type='file' id="files_{{$item->id}}" name='image' class="form-control-file" hidden>
+                                            <label for="files_{{$item->id}}" class="btn btn-danger">Выбрать фото</label>
                                             <input hidden name="id" value="{{$item->id}}">
                                             <input hidden name="fio" value="{{$item->fio}}">
                                         </div>
@@ -95,18 +87,22 @@
             </div>
         </div>
     </div>
-</div>
-@if($paginator->total() > $paginator->count())
-    <div class='row justify-container-center'>
-        <div class='col-md-12'>
-            <div class='card'>
-                {{ $paginator->links() }}
+    @if($paginator->total() > $paginator->count())
+        <div class='row justify-container-center'>
+            <div class='col-md-12'>
+                <div class='card'>
+                    {{ $paginator->links() }}
+                </div>
             </div>
         </div>
-    </div>
-@endif
-<div id="picture">
+    @endif
+</div>
+
+<div class="grid">
 
 </div>
 <script src={{ asset('js/jquery.js') }}></script>
+<script src={{ asset('js/bootstrap.js') }}></script>
+<script src={{ asset('js/masonry/imagesloaded.pkg.min.js') }}></script>
+<script src={{ asset('js/masonry/masonry.pkgd.min.js') }}></script>
 <script src={{ asset('js/main.js') }}></script>

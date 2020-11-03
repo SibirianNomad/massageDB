@@ -24,7 +24,7 @@ class ClientController extends BaseController
      */
     public function index()
     {
-        $paginator=$this->clientRepository->getAllWithPaginate(10);
+        $paginator=$this->clientRepository->getAllWithPaginate(2);
         $birthdays=$this->clientRepository->getBirthdays();
         $day=$this->clientRepository->getCurrentDate();
         return view('index',compact('paginator','birthdays','day'));

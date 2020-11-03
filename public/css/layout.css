@@ -1,0 +1,9 @@
+.grid-sizer,
+.grid-item {
+    width: 33.3%;
+    float: left;
+    padding: 10px;
+}
+.grid-item img{
+    width: 100%;
+}

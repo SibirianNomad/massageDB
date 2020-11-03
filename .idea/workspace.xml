@@ -18,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -150,7 +150,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js/masonry" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -163,10 +163,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\poligon\htdocs\massageDB\public\js\masonry" />
+      <recent name="C:\poligon\htdocs\massageDB\public\js\isotope" />
       <recent name="C:\poligon\htdocs\massageDB\public\js" />
       <recent name="C:\poligon\htdocs\massageDB\resources\views\includes" />
       <recent name="C:\poligon\htdocs\massageDB\resources\views" />
-      <recent name="C:\poligon\htdocs\massageDB\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\poligon\htdocs\massageDB\public\js" />
@@ -195,6 +196,8 @@
       <workItem from="1602667158267" duration="10142000" />
       <workItem from="1603681721301" duration="6892000" />
       <workItem from="1603689073843" duration="17602000" />
+      <workItem from="1604289192546" duration="7178000" />
+      <workItem from="1604395306832" duration="5376000" />
     </task>
     <servers />
   </component>
