@@ -19,7 +19,6 @@ class ClientRepository extends CoreRepository
             'id',
             'fio',
             'birthday',
-            'massage_type',
             'medical_background',
             'annotation',
             'last_massage',

@@ -30,7 +30,6 @@
                             <th  class="col-auto">#</th>
                             <th  class="col-md-auto">ФИО</th>
                             <th  class="col-md-auto">Дата рождения</th>
-                            <th  class="col-md-auto">Тип массажа</th>
                             <th  class="col-md-auto">Анамнез</th>
                             <th  class="col-md-auto">Примечания</th>
                             <th  class="col-md-auto">Дата последнего массажа</th>
@@ -40,7 +39,7 @@
                         </thead>
                         <tbody>
                         @foreach($paginator as $item)
-                            <tr  @if($item->is_active) style="background-color:lightpink;" @endif>
+                            <tr  @if($item->is_active) style="background-color:chartreuse;" @endif>
                                 <td>{{$item->id}}</td>
 
                                 <td>
@@ -50,7 +49,6 @@
                                  </td>
 
                                 <td>{{$item->birthday}}</td>
-                                <td>{{$item->massage_type}}</td>
                                 <td>{{$item->medical_background}}</td>
                                 <td>{{$item->annotation}}</td>
                                 <td>{{$item->last_massage}}</td>

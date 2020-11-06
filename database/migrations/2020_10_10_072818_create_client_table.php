@@ -17,7 +17,6 @@ class CreateClientTable extends Migration
             $table->bigIncrements('id');
             $table->string('fio');
             $table->date('birthday')->nullable();
-            $table->string('massage_type')->nullable();
             $table->text('medical_background')->nullable();
             $table->boolean('photo')->default(false);
             $table->text('annotation')->nullable();

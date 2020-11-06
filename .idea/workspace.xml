@@ -150,7 +150,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js/masonry" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -198,6 +198,7 @@
       <workItem from="1603689073843" duration="17602000" />
       <workItem from="1604289192546" duration="7178000" />
       <workItem from="1604395306832" duration="5376000" />
+      <workItem from="1604631845853" duration="1920000" />
     </task>
     <servers />
   </component>

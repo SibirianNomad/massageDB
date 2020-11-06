@@ -14,7 +14,6 @@ class Client extends Model
     protected $fillable=[
         'fio',
         'birthday',
-        'massage_type',
         'medical_background',
         'annotation',
         'last_massage',

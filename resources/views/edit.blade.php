@@ -1,10 +1,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 @if($item->exists)
-    <form method='POST' action="{{ route('client.update', $item->id ) }}">
+    <form class="bg-secondary" method='POST' action="{{ route('client.update', $item->id ) }}">
         @method('PATCH')
+        <h1 class="text-center text-white p-2">Просмотр и редактирование пациента</h1>
         @else
-            <form method='POST' action="{{ route('client.store') }}">
+            <form class="bg-secondary" method='POST' action="{{ route('client.store') }}">
+                <h1 class="text-center text-white p-2">Дабавление записи</h1>
                 @endif
                 @csrf
                 <div class='container'>
