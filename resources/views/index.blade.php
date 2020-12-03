@@ -81,9 +81,9 @@
                                     </form>
                                 </td>
                                 <td class="text-center">
-                                    <button  class="btn btn-primary mb-1" href="{{ route('client.edit', $item->id) }}">
+                                    <a  class="btn btn-primary mb-1" href="{{ route('client.edit', $item->id) }}">
                                         Редактировать
-                                    </button>
+                                    </a>
                                     @if($item->photo)
                                         <button type="submit" class="btn btn-primary mb-1" onclick="unloadPhoto({{$item->id}},'{{$item->fio}}')">Фотографии</button>
                                     @endif

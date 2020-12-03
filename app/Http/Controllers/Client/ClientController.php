@@ -88,6 +88,7 @@ class ClientController extends BaseController
          if(empty($item)){
              abort(404);
          }
+
         return view('edit', compact('item'));
     }
 

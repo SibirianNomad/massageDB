@@ -34,10 +34,19 @@ class Client extends Model
     ];
     public function getBirthdayAttribute($valueFromObject)
     {
-        return Carbon::parse($valueFromObject)->format('d.m.Y');
+        if($valueFromObject==null){
+            return null;
+        }else{
+            return Carbon::parse($valueFromObject)->format('d.m.Y');
+        }
     }
     public function getLastMassageAttribute($valueFromObject)
     {
-        return Carbon::parse($valueFromObject)->format('d.m.Y');
+        if($valueFromObject==null){
+            return null;
+        }else{
+            return Carbon::parse($valueFromObject)->format('d.m.Y');
+        }
     }
+
 }

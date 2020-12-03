@@ -24,11 +24,19 @@
                         </div>
                         <div class='form-group'>
                             <label for='birthday'>Дата рождения</label>
-                            <input type="date" class="form-control" id="birthday" name="birthday" value='{{ $item->birthday }}'>
+                            <input type="date"
+                                   class="form-control"
+                                   id="birthday"
+                                   name="birthday"
+                                   value='{{ $item->birthday }}'>
                         </div>
                         <div class='form-group'>
                             <label for='last_massage'>Дата последнего массажа</label>
-                            <input type="date" class="form-control" id="last_massage" name="last_massage" value='{{ $item->last_massage }}'>
+                            <input type="date"
+                                   class="form-control"
+                                   id="last_massage"
+                                   name="last_massage"
+                                   value='{{ $item->last_massage }}'>
                         </div>
                         <div class='form-group'>
                             <label for='massage_type'>Тип массажа</label>
@@ -48,7 +56,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='skin_diseases'>Кожные заболевания</label>
-                            <input name='skin_diseases' value='{{ $item->skin_diseases }}'
+                            <input name='skin_diseases'
+                                   value='{{ $item->skin_diseases }}'
                                    id='skin_diseases'
                                    type='text'
                                    class='form-control'
@@ -56,7 +65,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='JKT_diseases'>Заболевания ЖКТ</label>
-                            <input name='JKT_diseases' value='{{ $item->JKT_diseases }}'
+                            <input name='JKT_diseases'
+                                   value='{{ $item->JKT_diseases }}'
                                    id='JKT_diseases'
                                    type='text'
                                    class='form-control'
@@ -64,7 +74,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='adenopathia'>Заболевания лимфатической системы</label>
-                            <input name='adenopathia' value='{{ $item->adenopathia }}'
+                            <input name='adenopathia'
+                                   value='{{ $item->adenopathia }}'
                                    id='adenopathia'
                                    type='text'
                                    class='form-control'
@@ -72,7 +83,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='endocrine_system'>Наличие заболеваний эндокринной сферы</label>
-                            <input name='endocrine_system' value='{{ $item->endocrine_system }}'
+                            <input name='endocrine_system'
+                                   value='{{ $item->endocrine_system }}'
                                    id='endocrine_system'
                                    type='text'
                                    class='form-control'
@@ -80,7 +92,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='CDV'>Сердечно - сосудистые заболевания</label>
-                            <input name='CDV' value='{{ $item->CDV }}'
+                            <input name='CDV'
+                                   value='{{ $item->CDV }}'
                                    id='CDV'
                                    type='text'
                                    class='form-control'
@@ -88,7 +101,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='respiratory_diseases'>Заболевания дыхательной системы</label>
-                            <input name='respiratory_diseases' value='{{ $item->respiratory_diseases }}'
+                            <input name='respiratory_diseases'
+                                   value='{{ $item->respiratory_diseases }}'
                                    id='respiratory_diseases'
                                    type='text'
                                    class='form-control'
@@ -96,7 +110,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='veneral_diseases'>Венерические заболевания</label>
-                            <input name='veneral_diseases' value='{{ $item->respiratory_diseases }}'
+                            <input name='veneral_diseases'
+                                   value='{{ $item->respiratory_diseases }}'
                                    id='veneral_diseases'
                                    type='text'
                                    class='form-control'
@@ -104,7 +119,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='pregnant'>Беременность, период локтации</label>
-                            <input name='pregnant' value='{{ $item->respiratory_diseases }}'
+                            <input name='pregnant'
+                                   value='{{ $item->respiratory_diseases }}'
                                    id='pregnant'
                                    type='text'
                                    class='form-control'
@@ -112,7 +128,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='allergic_response'>Аллергичекие реакции</label>
-                            <input name='allergic_response' value='{{ $item->respiratory_diseases }}'
+                            <input name='allergic_response'
+                                   value='{{ $item->respiratory_diseases }}'
                                    id='allergic_response'
                                    type='text'
                                    class='form-control'
@@ -120,7 +137,8 @@
                         </div>
                         <div class='form-group'>
                             <label for='drugs'>Принимаемые в настоящий момент медикаменты</label>
-                            <input name='drugs' value='{{ $item->respiratory_diseases }}'
+                            <input name='drugs'
+                                   value='{{ $item->respiratory_diseases }}'
                                    id='drugs'
                                    type='text'
                                    class='form-control'

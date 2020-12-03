@@ -47,7 +47,7 @@ class ClientRepository extends CoreRepository
         $data=Model::withTrashed()->get();
         foreach($data as $record){
             $day= Carbon::now()->diffInHours($record->birthday, false);
-            if($day<48 && $day>(-15) && $record['deleted_at']==null){
+            if($day<48 && $day>(-15) && $record['deleted_at']==null && $record->birthday!=null){
                 $birthdays[]=$record;
             }
         }
