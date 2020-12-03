@@ -8,18 +8,17 @@
     </div>
 </div>
 @if($item->exists)
-    <div class='row justify-content-center'>
+    <div style="display: none" class='row justify-content-center'>
         <div class='col-md-12'>
             <div class='card'>
                 <div class='card-body'>
                     <ul class='list-unstyled'>
-                        <li>ID: {{$item->id}}</li>
+                        <li id="id-patient">{{$item->id}}</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <br>
     <div class='row justify-content-center'>
         <div class='col-md-12'>
             <div class='card'>

@@ -150,7 +150,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/includes" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -163,10 +163,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\poligon\htdocs\massageDB\resources\views\includes" />
       <recent name="C:\poligon\htdocs\massageDB\public\js\masonry" />
       <recent name="C:\poligon\htdocs\massageDB\public\js\isotope" />
       <recent name="C:\poligon\htdocs\massageDB\public\js" />
-      <recent name="C:\poligon\htdocs\massageDB\resources\views\includes" />
       <recent name="C:\poligon\htdocs\massageDB\resources\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -199,6 +199,12 @@
       <workItem from="1604289192546" duration="7178000" />
       <workItem from="1604395306832" duration="5376000" />
       <workItem from="1604631845853" duration="1920000" />
+      <workItem from="1605671608421" duration="2634000" />
+      <workItem from="1605757111897" duration="158000" />
+      <workItem from="1606221787586" duration="6986000" />
+      <workItem from="1606555395539" duration="4022000" />
+      <workItem from="1606822717072" duration="1741000" />
+      <workItem from="1606902135025" duration="13191000" />
     </task>
     <servers />
   </component>

@@ -17,7 +17,18 @@ class CreateClientTable extends Migration
             $table->bigIncrements('id');
             $table->string('fio');
             $table->date('birthday')->nullable();
+            $table->text('massage_type')->nullable();
             $table->text('medical_background')->nullable();
+            $table->text('skin_diseases')->nullable();
+            $table->text('JKT_diseases')->nullable();
+            $table->text('adenopathia')->nullable();
+            $table->text('endocrine_system')->nullable();
+            $table->text('CDV')->nullable();
+            $table->text('respiratory_diseases')->nullable();
+            $table->text('veneral_diseases')->nullable();
+            $table->text('pregnant')->nullable();
+            $table->text('allergic_response')->nullable();
+            $table->text('drugs')->nullable();
             $table->boolean('photo')->default(false);
             $table->text('annotation')->nullable();
             $table->date('last_massage')->nullable();

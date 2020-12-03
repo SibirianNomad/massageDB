@@ -21,15 +21,15 @@ let unloadPhoto=function (id,name){
             $('.grid-item').remove();
             $('<div/>',{
                 class:'grid-sizer'
-            }).appendTo('.grid');
+            }).appendTo('.grid'+id);
             $.each(data,function (key,value){
                 var div=$( "<div/>", {
                     class: "grid-item",
                     html:value
                 });
-                $('.grid').append( div )
+                $('.grid'+id).append( div )
             });
-            var grid = document.querySelector('.grid');
+            var grid = document.querySelector('.grid'+id);
             var msnry;
             imagesLoaded( grid, function() {
                 msnry = new Masonry( grid, {
@@ -37,7 +37,9 @@ let unloadPhoto=function (id,name){
                     columnWidth: '.grid-sizer',
                     percentPosition: true
                 });
-            });
+            })
+
+
         },
         error: function () {
             console.log('error');

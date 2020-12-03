@@ -17,6 +17,22 @@
         @endforeach
     @endif
 @include('includes.result_message')
+    <form action="{{ route('client.show',1) }}" method="GET">
+        @csrf
+        <div class="input-group pull-right">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Поиск пациента"
+                   id="searchText"
+                   name="searchText"
+            />
+            <div class="input-group-btn pull-right">
+                <button class="btn btn-primary" type="submit">
+                    Искать
+                </button>
+            </div>
+        </div>
+    </form>
     <div class='row justify-container-center'>
         <div class='col-md-12'>
             <nav class='nav nav-toggleable-md navbar-light bg-faded mb-3'>
@@ -52,32 +68,34 @@
                                 <td>{{$item->medical_background}}</td>
                                 <td>{{$item->annotation}}</td>
                                 <td>{{$item->last_massage}}</td>
-                                <td>
+                                <td class="text-center">
                                     <form method="POST" action="{{ route('upload') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class=«col-md-6»>
                                             <input type='file' id="files_{{$item->id}}" name='image' class="form-control-file" hidden>
-                                            <label for="files_{{$item->id}}" class="btn btn-danger">Выбрать фото</label>
+                                            <label for="files_{{$item->id}}" class="btn btn-warning">Выбрать фото</label>
                                             <input hidden name="id" value="{{$item->id}}">
                                             <input hidden name="fio" value="{{$item->fio}}">
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-block">Добавить</button>
+                                        <button type="submit" class="btn btn-primary">Добавить</button>
                                     </form>
                                 </td>
-                                <td>
-                                    <a  class="btn btn-primary btn-block" href="{{ route('client.edit', $item->id) }}">
+                                <td class="text-center">
+                                    <button  class="btn btn-primary mb-1" href="{{ route('client.edit', $item->id) }}">
                                         Редактировать
-                                    </a>
-                                    <form class="mt-2" method='POST' action="{{ route('client.destroy', $item->id ) }}">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-primary btn-block">Удалить</button>
-                                    </form>
+                                    </button>
                                     @if($item->photo)
-                                    <button type="submit" class="btn btn-primary btn-block" onclick="unloadPhoto({{$item->id}},'{{$item->fio}}')">Фотографии</button>
+                                        <button type="submit" class="btn btn-primary mb-1" onclick="unloadPhoto({{$item->id}},'{{$item->fio}}')">Фотографии</button>
                                     @endif
+                                        <button type="submit"
+                                                class="btn btn-danger mb-1"
+                                                data-toggle="modal"
+                                                data-target="#deleteRecord{{$item->id}}"
+                                        >Удалить</button>
+                                    @include('includes.popup')
                                 </td>
                             </tr>
+
                         @endforeach
                         </tbody>
                     </table>
@@ -96,9 +114,9 @@
     @endif
 </div>
 
-<div class="grid">
-
+<div class="grid1">
 </div>
+
 <script src={{ asset('js/jquery.js') }}></script>
 <script src={{ asset('js/bootstrap.js') }}></script>
 <script src={{ asset('js/masonry/imagesloaded.pkg.min.js') }}></script>

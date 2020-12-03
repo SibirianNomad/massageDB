@@ -13,7 +13,7 @@ class ClientRepository extends CoreRepository
     protected function getModelClass(){
         return Model::class;
     }
-    public function getAllWithPaginate($countPage=null)
+    public function getAllWithPaginate($countPage=null,$text='')
     {
         $fields=[
             'id',
@@ -30,7 +30,8 @@ class ClientRepository extends CoreRepository
         $result=$this
             ->startConditions()
             ->select($fields)
-            ->toBase()
+            ->where('fio','like','%'.$text.'%')
+            ->orderBy('fio')
             ->paginate($countPage);
 
         return $result;
@@ -41,16 +42,12 @@ class ClientRepository extends CoreRepository
         return $this->startConditions()->find($id);
     }
 
-    public function getBirthdays(){
+    public function getAllBirthdays(){
         $birthdays=[];
         $data=Model::withTrashed()->get();
-        $collection=collect($data->toArray());
-        foreach($collection as $record){
-            $birthday = Carbon::parse($record['birthday']);
-            $birthday->year(date('Y'));
-            $day= Carbon::now()->diffInHours($birthday, false);
+        foreach($data as $record){
+            $day= Carbon::now()->diffInHours($record->birthday, false);
             if($day<48 && $day>(-15) && $record['deleted_at']==null){
-                $record['birthday']=Carbon::parse($record['birthday'])->format('d.m.Y');
                 $birthdays[]=$record;
             }
         }

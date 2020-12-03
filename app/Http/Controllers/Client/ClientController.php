@@ -24,8 +24,9 @@ class ClientController extends BaseController
      */
     public function index()
     {
-        $paginator=$this->clientRepository->getAllWithPaginate(2);
-        $birthdays=$this->clientRepository->getBirthdays();
+        $paginator=$this->clientRepository->getAllWithPaginate(10);
+        $paginator=$this->sliceText($paginator);
+        $birthdays=$this->clientRepository->getAllBirthdays();
         $day=$this->clientRepository->getCurrentDate();
         return view('index',compact('paginator','birthdays','day'));
     }
@@ -38,6 +39,7 @@ class ClientController extends BaseController
     public function create()
     {
         $item=new Client();
+
         return view('edit',compact('item'));
     }
 
@@ -50,7 +52,6 @@ class ClientController extends BaseController
     public function store(Request $request)
     {
         $data=$request->input();
-
         $item=(new Client())->create($data);
         if($item){
             return redirect()->route('client.index')->with(['success'=>'Пациент дабален']);;
@@ -65,9 +66,14 @@ class ClientController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
-        dd(__METHOD__);
+        $text=$request->input('searchText');
+        $paginator=$this->clientRepository->getAllWithPaginate(10,$text);
+        $paginator=$this->sliceText($paginator);
+        $birthdays=$this->clientRepository->getAllBirthdays();
+        $day=$this->clientRepository->getCurrentDate();
+        return view('index',compact('paginator','birthdays','day'));
     }
 
     /**
@@ -78,9 +84,7 @@ class ClientController extends BaseController
      */
     public function edit($id)
     {
-
          $item=$this->clientRepository->getEdit($id);
-
          if(empty($item)){
              abort(404);
          }
@@ -128,6 +132,20 @@ class ClientController extends BaseController
         }
     }
     public function upload(){
-        dd(12);
+    }
+    function sliceText($paginator){
+        foreach ($paginator as $value){
+            $pieces = explode(" ", $value->annotation);
+            $words=array_splice($pieces, 0, 10);
+            (count($words)<10)?$dots='':$dots='...';
+            $value->annotation = implode(" ", $words).$dots;
+        }
+        foreach ($paginator as $value){
+            $pieces = explode(" ", $value->medical_background);
+            $words=array_splice($pieces, 0, 10);
+            (count($words)<10)?$dots='':$dots='...';
+            $value->medical_background = implode(" ", $words).$dots;
+        }
+       return $paginator;
     }
 }
