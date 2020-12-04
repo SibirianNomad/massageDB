@@ -5,6 +5,12 @@
 
 <link rel="stylesheet" href={{ asset('css/bootstrap.css') }}>
 <link rel="stylesheet" href={{ asset('css/layout.css') }}>
+<script src={{ asset('js/jquery.js') }}></script>
+<script src={{ asset('js/bootstrap.js') }}></script>
+<script src={{ asset('js/masonry/imagesloaded.pkg.min.js') }}></script>
+<script src={{ asset('js/masonry/masonry.pkgd.min.js') }}></script>
+<script src={{ asset('js/main.js') }}></script>
+
 
 <div class='h-100 pt-3 px-5 bg-secondary'>
     <div class='text-center text-white h4'>
@@ -85,7 +91,12 @@
                                         Редактировать
                                     </a>
                                     @if($item->photo)
-                                        <button type="submit" class="btn btn-primary mb-1" onclick="unloadPhoto({{$item->id}},'{{$item->fio}}')">Фотографии</button>
+                                        <button type="submit"
+                                                class="btn btn-primary mb-1"
+                                                onclick="unloadPhoto({{$item->id}},'{{$item->fio}}')"
+                                                data-toggle="modal"
+                                                data-target="#popupImages"
+                                        >Фотографии</button>
                                     @endif
                                         <button type="submit"
                                                 class="btn btn-danger mb-1"
@@ -114,11 +125,4 @@
     @endif
 </div>
 
-<div class="grid1">
-</div>
-
-<script src={{ asset('js/jquery.js') }}></script>
-<script src={{ asset('js/bootstrap.js') }}></script>
-<script src={{ asset('js/masonry/imagesloaded.pkg.min.js') }}></script>
-<script src={{ asset('js/masonry/masonry.pkgd.min.js') }}></script>
-<script src={{ asset('js/main.js') }}></script>
+@include('includes.popup_images')

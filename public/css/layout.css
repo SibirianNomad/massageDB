@@ -7,3 +7,7 @@
 .grid-item img{
     width: 100%;
 }
+.img-slide{
+    margin: 0 auto;
+    display: block;
+}
