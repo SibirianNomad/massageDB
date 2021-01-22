@@ -6,7 +6,7 @@
         <h1 class="text-center text-white p-2">Просмотр и редактирование пациента</h1>
         @else
             <form class="bg-secondary" method='POST' action="{{ route('client.store') }}">
-                <h1 class="text-center text-white p-2">Дабавление записи</h1>
+                <h1 class="text-center text-white p-2">Добавление записи</h1>
                 @endif
                 @csrf
                 <div class='container'>

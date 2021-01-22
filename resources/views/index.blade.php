@@ -49,10 +49,8 @@
                     <table class='table table-hover bg-white'>
                         <thead>
                         <tr>
-                            <th  class="col-auto">#</th>
                             <th  class="col-md-auto">ФИО</th>
                             <th  class="col-md-auto">Дата рождения</th>
-                            <th  class="col-md-auto">Анамнез</th>
                             <th  class="col-md-auto">Примечания</th>
                             <th  class="col-md-auto">Дата последнего массажа</th>
                             <th  class="col-md-auto">Добавить фотографию</th>
@@ -62,7 +60,6 @@
                         <tbody>
                         @foreach($paginator as $item)
                             <tr  @if($item->is_active) style="background-color:chartreuse;" @endif>
-                                <td>{{$item->id}}</td>
 
                                 <td>
                                     <a href="{{ route('client.edit', $item->id) }}">
@@ -71,14 +68,13 @@
                                  </td>
 
                                 <td>{{$item->birthday}}</td>
-                                <td>{{$item->medical_background}}</td>
                                 <td>{{$item->annotation}}</td>
                                 <td>{{$item->last_massage}}</td>
                                 <td class="text-center">
-                                    <form method="POST" action="{{ route('upload') }}" enctype="multipart/form-data">
+                                    <form id='upload_photo' method="POST" action="{{ route('upload') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class=«col-md-6»>
-                                            <input type='file' id="files_{{$item->id}}" name='image' class="form-control-file" hidden>
+                                            <input onchange='uploadPhoto({{$item->id}})' type='file' id="files_{{$item->id}}" name='image' class="form-control-file" hidden>
                                             <label for="files_{{$item->id}}" class="btn btn-warning">Выбрать фото</label>
                                             <input hidden name="id" value="{{$item->id}}">
                                             <input hidden name="fio" value="{{$item->fio}}">

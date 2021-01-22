@@ -1,11 +1,12 @@
 
-$('.form-control-file').on('change',function () {
-    var elem= $(this).next();
-    elem.html('Фото выбрано');
-    elem.removeClass('btn-danger');
-    elem.addClass('btn-success');
-});
 
+let uploadPhoto=function(id){
+    var elem= $('#files_'+id).next();
+    console.log(elem)
+    elem.html('Фото выбрано');
+    elem.removeClass('btn-warning');
+    elem.addClass('btn-success');
+}
 let unloadPhoto=function (id,name){
     $.ajax({
         type: 'POST',

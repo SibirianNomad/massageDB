@@ -3,6 +3,7 @@
     width: 33.3%;
     float: left;
     padding: 5px;
+    cursor:pointer;
 }
 .grid-item img{
     width: 100%;
@@ -10,4 +11,5 @@
 .img-slide{
     margin: 0 auto;
     display: block;
+    width: 550px;
 }

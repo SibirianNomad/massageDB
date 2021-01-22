@@ -25,7 +25,7 @@ class CreateClientTable extends Migration
             $table->text('endocrine_system')->nullable();
             $table->text('CDV')->nullable();
             $table->text('respiratory_diseases')->nullable();
-            $table->text('veneral_diseases')->nullable();
+            $table->text('gynecological_diseases')->nullable();
             $table->text('pregnant')->nullable();
             $table->text('allergic_response')->nullable();
             $table->text('drugs')->nullable();

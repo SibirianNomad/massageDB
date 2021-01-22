@@ -22,7 +22,6 @@ class Client extends Model
         'endocrine_system',
         'CDV',
         'respiratory_diseases',
-        'veneral_diseases',
         'pregnant',
         'allergic_response',
         'drugs',
@@ -30,7 +29,8 @@ class Client extends Model
         'last_massage',
         'created_at',
         'is_active',
-        'photo'
+        'photo',
+        'gynecological_diseases'
     ];
     public function getBirthdayAttribute($valueFromObject)
     {

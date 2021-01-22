@@ -47,7 +47,7 @@
                             >{{ old('massage_type',$item->massage_type) }}</textarea>
                         </div>
                         <div class='form-group'>
-                            <label for='medical_background'>Анамнез</label>
+                            <label for='medical_background'>Жалобы</label>
                             <textarea name='medical_background'
                                       id='medical_background'
                                       rows='3'
@@ -109,18 +109,9 @@
                             >
                         </div>
                         <div class='form-group'>
-                            <label for='veneral_diseases'>Венерические заболевания</label>
-                            <input name='veneral_diseases'
-                                   value='{{ $item->respiratory_diseases }}'
-                                   id='veneral_diseases'
-                                   type='text'
-                                   class='form-control'
-                            >
-                        </div>
-                        <div class='form-group'>
                             <label for='pregnant'>Беременность, период локтации</label>
                             <input name='pregnant'
-                                   value='{{ $item->respiratory_diseases }}'
+                                   value='{{ $item->pregnant }}'
                                    id='pregnant'
                                    type='text'
                                    class='form-control'
@@ -129,8 +120,17 @@
                         <div class='form-group'>
                             <label for='allergic_response'>Аллергичекие реакции</label>
                             <input name='allergic_response'
-                                   value='{{ $item->respiratory_diseases }}'
+                                   value='{{ $item->allergic_response }}'
                                    id='allergic_response'
+                                   type='text'
+                                   class='form-control'
+                            >
+                        </div>
+                        <div class='form-group'>
+                            <label for='gynecological_diseases'>Гинекологические заболевания</label>
+                            <input name='gynecological_diseases'
+                                   value='{{ $item->gynecological_diseases }}'
+                                   id='gynecological_diseases'
                                    type='text'
                                    class='form-control'
                             >
@@ -138,7 +138,7 @@
                         <div class='form-group'>
                             <label for='drugs'>Принимаемые в настоящий момент медикаменты</label>
                             <input name='drugs'
-                                   value='{{ $item->respiratory_diseases }}'
+                                   value='{{ $item->drugs }}'
                                    id='drugs'
                                    type='text'
                                    class='form-control'
